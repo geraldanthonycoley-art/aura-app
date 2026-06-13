@@ -32,13 +32,24 @@ jobs:
     - name: Setup Android SDK
       uses: android-actions/setup-android@v3
 
-    - name: Sync Capacitor Android
+    - name: Create Emergency Config if Missing
       run: |
-        npx cap sync android
+        if [ ! -f "capacitor.config.json" ]; then
+          echo '{"appId": "com.gerry.aurassistent", "appName": "AuraAssistant", "webDir": "dist"}' > capacitor.config.json
+        fi
+
+    - name: Add Android Platform Online
+      run: |
+        npx cap add android || true
+
+    - name: Sync Capacitor
+      run: npx cap sync android
 
     - name: Build Debug APK
       run: |
-        cd android && ./gradlew assembleDebug
+        cd android
+        chmod +x gradlew
+        ./gradlew assembleDebug
 
     - name: Upload Finished APK
       uses: actions/upload-artifact@v4
