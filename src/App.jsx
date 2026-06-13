@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 
 export default function App() {
   const appId = 'aura-personal-assistant';
-const apiKey = "AIzaSyYourActualGeminiKeyQuiDentro";
+const apiKey = "LA_TUA_CHIAVE_GEMINI_REALE";
 
   const [activeTab, setActiveTab] = useState('dashboard');
   const [darkMode, setDarkMode] = useState(true);
