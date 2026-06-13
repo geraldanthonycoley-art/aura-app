@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 
 export default function App() {
   const appId = 'aura-personal-assistant';
-  const apiKey = ""; // Chiave API di Gemini
+const apiKey = "AIzaSyYourActualGeminiKeyQuiDentro";
 
   const [activeTab, setActiveTab] = useState('dashboard');
   const [darkMode, setDarkMode] = useState(true);
